@@ -1,0 +1,80 @@
+.formVisualTitle {
+  text-align: center;
+  font-family: "Cabin", sans-serif;
+  font-size: clamp(1.9rem, 3vw, 4rem);
+  letter-spacing: 0.125em;
+  color: var(--primary);
+  margin: 1rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 1rem;
+  color: var(--accent-dark);
+  margin-bottom: 1rem;
+}
+
+.fieldset {
+  border: 1px solid var(--accent);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: var(--elevation-box-shadow-10);
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 200;
+  font-family: "cabin";
+  color: var(--accent-dark);
+}
+
+.input,
+.text-area {
+  min-width: 15rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-family: "source-sans-3";
+  background-color: var(--surface);
+}
+
+.textarea {
+  min-height: 6.25rem;
+  font-family: "source-sans-3";
+}
+
+button.submitButton {
+  padding: 0.5rem 0.75rem;
+}
+
+@media screen and (min-width: 600px) {
+  .input,
+  .text-area {
+    min-width: 30rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .form {
+    margin-bottom: 1.5rem;
+  }
+
+  .input,
+  .text-area {
+    min-width: 40rem;
+  }
+}

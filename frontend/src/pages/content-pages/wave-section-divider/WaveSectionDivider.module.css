@@ -1,0 +1,37 @@
+.sectionWave {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  outline-offset: 5px;
+  background-color: #faf4e1;
+}
+
+.waveContainer {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 10 / 1;
+  padding-top: 0.5rem;
+  padding-bottom: 2cap;
+}
+
+.svgStyle {
+  fill: #cfa72e;
+  width: 125%;
+  height: auto;
+  transform: rotate(180deg);
+  display: block;
+  pointer-events: none;
+}
+
+@media (min-width: 1025px) {
+  .sectionWave {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 0 0 0 0;
+  }
+}

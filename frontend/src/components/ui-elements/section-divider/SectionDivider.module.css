@@ -1,0 +1,16 @@
+.sectionDivider {
+  border: none;
+  border-top: 3px solid var(--accent);
+  padding: 0;
+  margin: 0;
+  width: 100dvw;
+  width: 100vw;
+}
+
+@media (min-width: 1025px) {
+  .sectionDivider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 1rem 2rem;
+  }
+}

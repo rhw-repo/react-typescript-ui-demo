@@ -1,0 +1,9 @@
+.scrollToContactSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.scrollToContactSection {
+  padding: 0.9rem 0.5rem;
+}

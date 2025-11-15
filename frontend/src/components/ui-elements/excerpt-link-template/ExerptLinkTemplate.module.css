@@ -1,0 +1,195 @@
+section {
+  padding: 0;
+  margin: 0;
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: var(--surface);
+  padding: 0;
+  overflow: hidden;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  list-style: none;
+}
+
+.listItem {
+  list-style-type: none;
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+.listItemGrid {
+  position: relative;
+  background-color: var(--surface);
+  border-radius: 0.5rem;
+  box-shadow: var(--elevation-box-shadow-10);
+  display: grid;
+  gap: 0.25rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "image"
+    "heading"
+    "subheading"
+    "preview";
+  text-decoration: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.listItemGrid > * {
+  position: relative;
+  z-index: 1;
+} 
+
+.listItemHeading,
+.listItemPreview,
+.listItemSubheading {
+  margin: 0;
+}
+
+.listItemHeading,
+.listItemSubheading {
+  text-align: start;
+}
+
+.listItemHeading {
+  grid-area: heading;
+  font-family: "cabin";
+  font-size: 1.75rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.listItemSubheading {
+  grid-area: subheading;
+  font-family: "cabin";
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-headline);
+  padding: 0 0 0.5rem 1rem;
+}
+
+.listItemPreview {
+  grid-area: preview;
+  color: var(--primary);
+  font-family: "source-sans-3";
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0 1rem 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4rem;
+}
+
+.listItemCardImageWrapper {
+  position: relative;
+  grid-area: image;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  margin: 0;
+}
+
+.cardImageWrapperCardImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.linkSection a:link,
+.linkSection a:visited {
+  color: var(--primary);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+
+.linkSection a:hover .listItemCardImageWrapper::after,
+.linkSection a:focus-visible .listItemCardImageWrapper::after,
+.linkSection a:active .listItemCardImageWrapper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Prevent bleed or flicker */
+  contain: strict;
+  isolation: isolate;
+  background-clip: padding-box;
+}
+
+.linkSection a:hover .listItemCardImageWrapper::after {
+  background-color: rgba(var(--primary-rgb), var(--state-hover-opacity));
+  transition: background-color 0.2s ease;
+}
+
+.linkSection a:focus-visible .listItemCardImageWrapper::after {
+  background-color: rgba(var(--primary-rgb), var(--state-focus-opacity));
+  transition: background-color 0.2s ease;
+}
+
+.linkSection a:active .listItemCardImageWrapper::after {
+  background-color: rgba(var(--primary-rgb), var(--state-press-opacity));
+  transition: background-color 0.1s ease;
+}
+
+.linkSection a:hover,
+.linkSection a:focus-visible {
+  transform: scale(1.01);
+  transition: transform 0.2s ease;
+}
+
+@media (min-width: 600px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  /* Default */
+  .listItem {
+    flex: 0 0 calc((100% - 1rem) / 2);
+    max-width: calc((100% - 1rem) / 2);
+  }
+
+  .listItem:first-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .listItemGrid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .listItemPreview {
+    margin: 0;
+    margin-top: auto;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .linkSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}

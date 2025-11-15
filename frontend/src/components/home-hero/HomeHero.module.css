@@ -1,0 +1,26 @@
+.homeHeroSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background-color: var(--surface);
+  margin: 0;
+  overflow-y: visible;
+}
+
+.homeHeroShapesContainer {
+  display: block;
+  padding: 0;
+}
+
+.homeFour .homeHeroShapesContainer {
+  display: block;
+}
+
+/* Prevent duplicate render when overlaying
+StatCards in hero with video */
+@media (min-width: 1024px) {
+  .homeVideo .homeHeroShapesContainer {
+    display: none;
+  }
+}

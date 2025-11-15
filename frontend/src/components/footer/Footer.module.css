@@ -1,0 +1,152 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--surface-solid);
+  color: var(--accent-dark);
+  padding: 0 2rem 2rem 2rem;
+  margin: 0 0 0 0;
+}
+
+.footerLinksSection ul {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footerLinksSectionListItem {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkIcon {
+  color: var(--primary);
+  height: clamp(1.2rem, 3vw, 2rem);
+  width: clamp(1.2rem, 3vw, 2rem);
+  border-radius: 50%;
+  padding: clamp(1rem, 0.9vw, 2rem);
+  /* Fallback if alter height in future */
+  aspect-ratio: 1 / 1;
+  background-color: transparent;
+  border: none;
+  box-shadow: var(--elevation-box-shadow-05);
+}
+
+/* SVG will not accept shared global pseudoclass */
+.linkIcon:hover {
+  background-color: #eceff3;
+}
+
+.linkIcon:focus-visible,
+.linkIcon:active {
+  background-color: #e7eaee;
+}
+
+.listItemLink {
+  color: var(--primary);
+  background-color: transparent;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerCompanyOne,
+.footerCompanyTwo {
+  font-family: "source-sans-3";
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.footerTitle {
+  margin: 0 0 0.5rem 0;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-dark);
+  font-family: "cabin";
+  font-weight: 1000;
+  font-size: clamp(1.15rem, 2vw, 2rem);
+  text-align: start;
+}
+
+.footerText {
+  margin: 0;
+}
+
+/* Allows text to wrap onto new line 
+using escaped n character in .ts data values */
+.footerCompanyNumber {
+  white-space: pre-line;
+}
+
+.footerAdditionalInfo {
+  font-size: 1rem;
+  font-family: "cabin";
+  font-weight: 1000;
+  text-wrap: pretty;
+  margin: 2rem 0 0 0;
+}
+
+.footerAdditionalInfoWiderScreens {
+  display: none;
+  line-height: 1.2;
+  min-height: 1rem;
+  color: var(--accent-dark);
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: "Cabin";
+  padding: 0.125rem 0.25rem;
+  border-bottom: 1px solid var(--primary);
+  text-wrap: pretty;
+}
+
+.footerSubtext {
+  font-size: 0.875rem;
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
+  hyphens: auto;
+  font-family: "source-sans-3", serif;
+  font-weight: 800;
+}
+
+@media screen and (min-width: 480px) {
+  .footerCompaniesContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 2rem 0;
+  }
+
+  .footerCompanyTwo {
+    padding-top: 0;
+  }
+
+  .footerCompanyNumber {
+    font-size: clamp(00.875rem, 2.5vw, 1rem);
+  }
+
+  .footerAdditionalInfo {
+    display: none;
+  }
+
+  .footerAdditionalInfoWiderScreens {
+    display: block;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 0;
+  }
+
+  .footerLinksSection ul {
+    padding-top: 1rem;
+  }
+}

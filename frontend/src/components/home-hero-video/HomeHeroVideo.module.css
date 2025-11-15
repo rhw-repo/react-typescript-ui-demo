@@ -1,0 +1,42 @@
+.videoSectionContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+  max-height: 90dvh;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.videoSectionVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoSectionOverlay::before {
+  content: "HEADLINE";
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  background-color: transparent;
+  color: var(--accent-headline);
+  font-family: "cabin";
+  font-weight: 600;
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 10rem);
+  letter-spacing: 0.5rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .videoSectionContainer {
+    height: 18.75rem;
+  }
+}

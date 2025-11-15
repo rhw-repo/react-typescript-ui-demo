@@ -1,0 +1,188 @@
+.nav {
+  background-color: var(--surface-solid);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 1rem;
+}
+
+/* Home layout: center logo */
+.navContentContainer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+}
+
+/* Pages layout: items with different dimensions */
+.navContentContainerPages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navPages {
+  border-bottom: 3px solid var(--accent);
+}
+
+.navHamburgerContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  /* Uniform height touch target 44.8px */
+  padding: 0.653rem 0.5rem;
+  background-color: var(--surface-solid);
+  box-shadow: var(--elevation-box-shadow-05);
+}
+
+.navHamburger {
+  height: 0.3rem;
+  width: 2rem;
+  border-radius: 1rem;
+  background-color: var(--primary);
+}
+
+.navLinks {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  list-style-type: none;
+  padding: 0;
+  width: 10rem;
+  height: auto;
+  background-color: var(--surface-solid);
+  border-radius: 0.25rem;
+  margin: 0;
+  z-index: 30;
+  border: 1px solid var(--accent);
+  overflow-y: auto;
+}
+
+.navLinks li {
+  padding: 0.5rem;
+}
+
+.navLinks li + li {
+  border-top: 1px solid var(--accent);
+}
+
+.navLink {
+  display: block;
+  width: 100%;
+  font-family: "cabin";
+  font-weight: 900;
+  color: var(--primary);
+  background-color: #ffff;
+  box-sizing: border-box;
+  width: 100%;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  padding: 0 0.5rem;
+}
+
+.navLink:hover {
+  background-color: var(--primary);
+  color: var(--surface);
+  border-radius: 0.25rem;
+}
+
+.navIcon {
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.navBrand {
+  grid-column: 2 / 3;
+  justify-self: center;
+  align-self: end;
+  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "cabin";
+  font-weight: 900;
+}
+
+.navBrandLogo {
+  inline-size: clamp(1.8rem, 8vw, 5rem);
+}
+
+.navBrandText {
+  display: block;
+  grid-column: 2 / 3;
+  font-family: "cabin";
+  font-weight: 900;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  text-align: center;
+  color: #02376b;
+  padding-left: 0;
+  padding-right: 0.5rem;
+  margin: 0;
+}
+
+.navRightGroup {
+  grid-column: 7 / span 2;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navScrollToContactForm {
+  grid-column: 3 / 4;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 360px) {
+  .navBrand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navBrandLogo {
+  inline-size: clamp(3.8rem, 8vw, 4rem);
+}
+}
+
+@media (min-width: 1025px) {
+  .navContentContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  /* calc prevent horizontal drift left & overflow
+  cap max 2rem prevent navLinks overflow horizontally 
+  on narrower desktops */ 
+  .navLinks {
+    position: fixed;
+    top: 7rem;
+    left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+  }
+}

@@ -1,0 +1,226 @@
+.pageCardsSection {
+  background-color: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 1rem 0 1rem;
+  background-color: transparent;
+}
+
+.pageCardsSectionCardWrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "image"
+    "heading"
+    "subheading"
+    "text"
+    "bottom";
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--surface);
+  box-shadow: var(--elevation-box-shadow-10);
+  width: 100%;
+}
+
+.pageCardsSectionCardWrapper:last-child {
+  padding-bottom: 1rem;
+}
+
+.cardWrapperHeading,
+.cardWrapperSubheading,
+.cardWrapperText {
+  position: relative;
+  z-index: 1;
+}
+
+.cardWrapperHeading,
+.cardWrapperSubheading {
+  font-family: "cabin";
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.cardWrapperHeading {
+  grid-area: heading;
+  padding: 1rem 1rem 0 1rem;
+  margin: 0;
+  text-wrap: balance;
+  text-align: start;
+}
+
+.cardWrapperSubheading {
+  grid-area: subheading;
+  padding: 1rem 1rem 0 1rem;
+  margin: 0;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+.listItem {
+  display: block;
+  gap: 0.75rem;
+  line-height: 1.4rem;
+  padding: 1rem;
+  list-style-type: none;
+  color: var(--primary);
+}
+
+.listIcon {
+  padding-right: 0.5rem;
+}
+
+.cardWrapperTextGroup {
+  grid-area: text;
+  font-family: "source-sans-3";
+}
+
+.cardWrapperText {
+  color: var(--primary);
+  padding: 0 1rem;
+  text-align: justify;
+  font-family: "source-sans-3";
+  font-size: 1rem;
+  line-height: 1.4rem;
+  text-wrap: pretty;
+}
+
+.imageList {
+  grid-area: image;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  background-color: var(--surface);
+}
+
+.imageTop {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.imageBottom {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.imageListItem img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlayText {
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--surface-solid);
+  font-family: "cabin";
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.imageList.bottomImageList {
+  grid-area: bottom;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 480px) {
+  .cardWrapperSubheading {
+    font-size: 1.25rem;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+
+  .listItem {
+    text-wrap: pretty;
+  }
+
+  .imageTop,
+  .imageBottom {
+    aspect-ratio: 16 / 9;
+    max-height: 30rem;
+  }
+
+  .imageTop img {
+    object-position: top;
+  }
+
+  .imageBottom img {
+    object-position: center;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .cardWrapperHeading,
+  .cardWrapperSubheading {
+    padding: 1rem 2rem 0 2rem;
+  }
+
+  .cardWrapperTextGroup {
+    padding: 0 1rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .listItem {
+    text-wrap: balance;
+  }
+
+  .imageTop img,
+  .imageBottom img {
+    aspect-ratio: 16 / 9;
+    max-height: 36rem;
+  }
+
+  .imageBottom img {
+    object-position: bottom;
+  }
+}

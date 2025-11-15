@@ -1,0 +1,189 @@
+/* Titles */
+@font-face {
+  font-family: "cabin";
+  src:
+    url("/assets/fonts/Cabin-VariableFont_wdth_wght.woff2") format("woff2"),
+    url("/assets/fonts/Cabin-VariableFont_wdth_wght.woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Paragraphs */
+@font-face {
+  font-family: "source-sans-3";
+  src:
+    url("/assets/fonts/SourceSans3-VariableFont_wght.woff2") format("woff2"),
+    url("/assets/fonts/SourceSans3-VariableFont_wght.woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+:root {
+  --surface: rgba(255, 255, 255, 0.87);
+  --surface-solid: rgba(255, 255, 255, 1);
+  --primary: #003566;
+  --accent: #ffc300;
+  --accent-dark: #00162a;
+  --accent-headline: #ffae00;
+  --error: #a2262c;
+  --elevation-box-shadow-05:
+    0px 3px 5px rgba(0, 0, 0, 0.2), 0px 4px 4px rgba(0, 0, 0, 0.14),
+    0px 1px 10px rgba(0, 0, 0, 0.12);
+  --elevation-box-shadow-10:
+    0px 6px 6px rgba(0, 0, 0, 0.2), 0px 10px 14px rgba(0, 0, 0, 0.14),
+    0px 4px 18px rgba(0, 0, 0, 0.12);
+  /* Button state layers */
+  --primary-rgb: 0, 53, 102;
+  --state-hover-opacity: 0.08;
+  --state-focus-opacity: 0.1;
+  --state-press-opacity: 0.1;
+  /* StatCards */
+  --shape-badge-size: 3rem;
+  --shape-badge-border: 5px;
+}
+
+*:focus:focus-visible {
+  outline: 3px solid #66b2ff;
+  outline-offset: 2px;
+}
+
+/* ------------Buttons & Links-----------------------  */
+/* Base styles */
+.interactive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: var(--elevation-box-shadow-05);
+  margin: 0;
+  font-family: "Cabin", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* GoHomeLink & ScrollToContactForm */
+.navbar-interactive {
+  background-color: var(--surface-solid);
+  color: var(--primary);
+  border: none;
+  font-size: clamp(0.875rem, 2vw, 1.25rem);
+  padding: 0.9rem;
+  gap: 0.5rem;
+}
+
+.interactive--state {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Shared state layer utility */
+.interactive--state::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.interactive--state:hover::before {
+  opacity: var(--state-hover-opacity);
+}
+
+.interactive--state:focus-visible::before {
+  opacity: var(--state-focus-opacity);
+}
+
+.interactive--state:active::before {
+  opacity: var(--state-press-opacity);
+}
+
+/* LatestNews, MockForm, AttributionDialog & NotFound buttons */
+.button--primary {
+  background-color: var(--primary);
+  color: var(--surface-solid);
+  border: 1px solid var(--primary);
+  font-size: 0.875rem;
+  padding: 0.75rem;
+  transition: background-color 0.2s ease;
+  text-align: center;
+}
+
+.button--primary:hover {
+  background-color: #234e7a;
+}
+
+.button--primary:active {
+  background-color: #00264d;
+}
+
+body {
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+}
+
+.pages__section {
+  margin: 0 auto;
+}
+
+/* PageThree & PageFive: first card image */
+.page-three img.topImage {
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+
+.page-five img.topImage {
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  overflow: clip;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Global Error styling */
+div.error {
+  padding: 0.625rem;
+  background: #ffefef;
+  border: 0.06rem solid var(--error);
+  color: var(--error);
+  border-radius: 0.5rem;
+  margin: 1.25rem 0;
+}
